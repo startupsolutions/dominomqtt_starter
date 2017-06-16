@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'Oxygen Light';
+  src: url('../fonts/Oxygen-Light.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Oxygen-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Oxygen-Light.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/Oxygen-Light.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/Oxygen-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Oxygen-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+html, body {
+	height: 100%;
+	font-family: 'Oxygen Light', sans-serif;
+}
+
+body {
+	font-size: 18px;
+	color: #333;
+} 
+
+/* ----------------------- */
+
+#clock {
+	padding-top: 20px;
+	text-align: -webkit-center;
+}
+
+#startup-logo {
+	padding-top: 52px;
+}
+
+/* ----------------------- */
+
+.text-shadow {
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+}
+
+.text-white {
+	color: #fff;
+}
+
+.small-text {
+	font-size: 10px;
+}
+
+/* ----------------------- */
+
+.border-bottom {
+	border-bottom: 1px solid rgba(175, 156, 124, 0.57)
+}
+
+/* ----------------------- */
+
+.no-margin {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+/* ----------------------- */
+
+.widget-temperature {
+	margin: 30px 15px 24px 0px;
+}
+
+.widget-temperature .badge {
+    background-color: #735F40;
+    font-size: 30px;
+    padding: 8px;
+    min-width: 108px;
+}
+
+/* ----------------------- */
+
+.badge {
+	min-width: 140px;
+}
+
+.bg-brown {
+    background-color: #634618 !important;
+}
+
+.bg-yellow {
+    background-color: #E8A335 !important;
+}
+
+.bg-light-gray {
+    background-color: #908D8B !important;
+}
+
+.bg-blue {
+    background-color: #1467b9 !important;
+}
+
+/* ----------------------- */
+
+#wrap {
+    min-height: 100%;
+}

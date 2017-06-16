@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ngApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>DominoMQTT - demo view server</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+	<link rel="stylesheet" href="static/css/font-awesome.min.css">
+	<!-- Toastr CSS -->
+	<link rel="stylesheet" href="static/css/angular-toastr.css">
+	<!-- Custom styles for this template -->
+    <link rel="stylesheet" href="static/css/custom-styles.css">
+    <link rel="stylesheet" href="static/components/clockwidget.css">
+
+</head>
+
+<body>
+    <div id="wrap" ng-controller="DisplayCtrl">
+        <div id="main" class="container-fluid clear-top">
+            <!--<div class="container">-->
+            <div class="row">
+                <div class="col-lg-4 text-center">
+					<h1>DominoMQTT</h1>
+					<h3>Demo view server</h3>
+                </div>
+                <div id="clock" class="col-lg-4 text-center">
+                    <clockwidget></clockwidget>
+                </div>
+                <div class="col-lg-4 text-center" id="startup-logo">
+					<img src="static/images/StartupSolutions_logo.png">
+                </div>
+            </div>
+
+			<br>
+			
+            <div class="row">
+				<div class="col-lg-12 col-md-12 text-center">
+					<h3>Temperatures</h3>
+				</div>
+			</div>
+
+			<br>
+			
+			<div class="row">
+				<!---->
+				<div class="col-lg-1 col-md-1">&nbsp;</div>
+				<!---->
+                <div class="col-lg-2 col-md-2">
+					<div class="alert alert-warning">
+						<i class="fa fa-2x fa-cutlery"></i>
+						<h4>kitchen</h4>
+						<div class="text-right">
+							<h2 class="text-white text-shadow">{{temperatures.kitchen || "---"}}°</h2>
+						</div>
+					</div>
+				</div>
+				<!---->
+                <div class="col-lg-2 col-md-2">
+					<div class="alert alert-info">
+						<i class="fa fa-2x fa-television"></i>
+						<h4>livingroom</h4>
+						<div class="text-right">
+							<h2 class="text-white text-shadow">{{temperatures.livingroom || "---"}}°</h2>
+						</div>
+					</div>
+				</div>
+				<!---->
+                <div class="col-lg-2 col-md-2">
+					<div class="alert bg-brown">
+						<i class="fa fa-2x fa-bed"></i>
+						<h4>bedroom</h4>
+						<div class="text-right">
+							<h2 class="text-white text-shadow">{{temperatures.bedroom || "---"}}°</h2>
+						</div>
+					</div>
+				</div>
+				<!---->
+                <div class="col-lg-2 col-md-2">
+					<div class="alert bg-blue">
+						<i class="fa fa-2x fa-bath"></i>
+						<h4>bathroom</h4>
+						<div class="text-right">
+							<h2 class="text-white text-shadow">{{temperatures.bathroom || "---"}}°</h2>
+						</div>
+					</div>
+				</div>
+				<!---->
+                <div class="col-lg-2 col-md-2">
+					<div class="alert alert-success">
+						<i class="fa fa-2x fa-car"></i>
+						<h4>garage [door: {{garage_door_status || "???"}}]</h4>
+						<div class="text-right">
+							<h2 class="text-white text-shadow">{{temperatures.garage || "---"}}°</h2>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+			<!--<br>-->
+            <div class="row">
+				<div class="col-lg-1 col-md-1">&nbsp;</div>
+				<div class="col-lg-1 col-md-1">
+					<h4>Actions:</h4>
+				</div>
+				<div class="col-lg-8 col-md-8">
+					<a href="#" class="btn btn-success" ng-click="onOpenGarageDoorBtn()">Open Garage door</a>
+					<a href="#" class="btn btn-info" ng-click="onCloseGarageDoorBtn()">Close Garage door</a>
+				</div>
+			</div>
+			
+            <div class="row">
+				<div class="col-lg-12 col-md-12 text-center">
+					<h3>Warnings / Alerts</h3>
+				</div>
+			</div>
+
+			<br>
+			
+            <div class="row">
+				<!---->
+				<div class="col-lg-1 col-md-1">&nbsp;</div>
+				<!---->
+                <div class="col-lg-5 col-md-5">
+					<div class="panel panel-warning">
+						<div class="panel-heading">
+							<h3 class="panel-title">Warnings</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row" ng-repeat="warning in warnings">
+								<div class="col-md-4">{{warning.timestamp}}</div>
+								<div class="col-md-8">{{warning.message}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="col-lg-5 col-md-5">
+					<div class="panel panel-danger">
+						<div class="panel-heading">
+							<h3 class="panel-title">Alerts</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row" ng-repeat="alert in alerts">
+								<div class="col-md-4">{{alert.timestamp}}</div>
+								<div class="col-md-8">{{alert.message}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="static/js/jquery-2.2.0.min.js"></script>
+    <!--<script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>-->
+    <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="static/js/angular.min.js"></script>
+	<!---->
+    <script type="text/javascript" src="static/js/angular-toastr.js"></script>
+    <script type="text/javascript" src="static/js/angular-toastr.tpls.js"></script>
+	<!---->
+	<script type="text/javascript" src="static/js/socket.io.min.js"></script>
+	<!---->
+	<script type="text/javascript" src="static/components/clockwidget.js"></script>
+    <script type="text/javascript" src="static/js/application/main.js"></script>
+    <script type="text/javascript" src="static/js/application/controllers/display-controller.js"></script>
+	<!---->
+</body>
+
+</html>
