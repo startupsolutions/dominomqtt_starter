@@ -8,7 +8,7 @@ Necessity is the mother of all inventions. I often work on projects based on Fla
 So, I decided to write a my own architecure, taking state-of-the-art components (MQTT, Mosquitto, Python, Flask, Socket.io and AngularJS) and glueing them via a simple class I wrote, **DominoMQTT**.
 
 ### The code
-The code is very light, making it possible to run it also on small machines, such as embedded GNU/Linux devices. Actually I run this code, in production mode, on RaspberryPi SBC.
+The code is very light, making it possible to run it also on small machines, such as embedded GNU/Linux devices. Actually I run this code, in production mode, on RaspberryPi and OrangePi single-board computers.
 
 **Note:** all the code of this project needs a running Mosquitto (MQTT Broker) instance.
 
@@ -30,3 +30,5 @@ As you can see, *DominoMQTT* is a common package required by *logic_worker* and 
 - start a **fake_sensor_client** instance (python fake_sensor_client.py);
 - open your web browser on http://localhost:5000;
 - enjoy!
+
+For every request, you can write me at carotenuto@startupsolutions.it
