@@ -20,7 +20,7 @@ This project is split across three subprojects:
 As you can see, *DominoMQTT* is a common package required by *logic_worker* and *fake_sensor_client* subprojects.
 
 ### Quickstart
-- install e run mosquitto
+- install and run mosquitto
         e.g. on Debian/Ubuntu:
           $ sudo apt-get install mosquitto
           $ sudo -i
