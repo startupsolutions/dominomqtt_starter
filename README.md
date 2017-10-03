@@ -31,7 +31,7 @@ As you can see, *DominoMQTT* is a common package required by *logic_worker* and 
 - inspect the code: start looking at **logic_worker** subproject: here is where you can implement all your business logic. In the code, you can find some very clear comments on how you can edit the code to suit your needs. Then move on **view_server** subproject, to see how to implement message handling. See python and angularjs code;
 - create a Python 2 virtualenv and "pip install" required packages for every project: you can find a *requirements.txt* for every subproject. So in each subfolders: logic_worker, view_server, fake_sensor_client do:
           $ pip install -r requirements.txt
-- start a **Mosquitto** instance on your machine (i.e.: mosquitto -v);
+- if not already done before start a **Mosquitto** instance on your machine (i.e.: mosquitto -v);
 - start a **logic_worker** instance (python logic_worker.py);
 - start a **view_server** instance (python view_server.py);
 - start a **fake_sensor_client** instance (python fake_sensor_client.py);
